@@ -1,0 +1,15 @@
+# useless mac files
+.DS_Store
+
+# quartus project files
+.qpf
+
+# other quartus files and folders
+.rpt
+.qsf
+.qws
+.v.bak
+db/
+incremental_db/
+output_files/
+simulation/
