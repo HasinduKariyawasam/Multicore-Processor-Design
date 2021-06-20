@@ -10,6 +10,7 @@ Control_unit.qsf
 Control_unit.qws
 Logic_testbench.v.bak
 ROM_testbench.v.bak
+MAP_testbench.v.bak
 Logic.v.bak
 MAP.v.bak
 nareg.v.bak
