@@ -1,19 +1,12 @@
-module MAP(clk,IR,out);
+module MAP(IR,out);
 
-	input clk;
 	input [7:0] IR;		// 8 bit OPCODE
 	output [4:0] out;		// 5 bit address of 1st microinstruction mapped from OPCODE address
 	
-	reg [7:0] map;
 	reg [4:0] out;
 	
-	always @ (posedge clk)
-	begin
-		map <= IR;
-	end
-
-	always @ (negedge clk)
-		case (map)
+	always @ (IR)
+		case (IR)
 			8'd0: out = 5'b00010;	// RSTALL
 			8'd16: out = 5'b00011;	// CONST
 			8'd32: out = 5'b00100;	// MOV
@@ -30,6 +23,7 @@ module MAP(clk,IR,out);
 			8'd208: out = 5'b11011;	// INCI
 			8'd224: out = 5'b11000;	// STORE
 			8'd240: out = 5'b11100;	// RSTI
+			default: out = 5'b11111; // When there's no mapping
 		endcase
 	
 endmodule
