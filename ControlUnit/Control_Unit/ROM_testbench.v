@@ -25,6 +25,12 @@ module ROM_testbench();
 		addr=5'd20; #10;
 		if(out !== 37'b0000000110000000000111010011000000000) $display("Wrong MUL3 output control signals");
 		
+		addr=5'd29; #10;
+		if(out == 37'd0) $display("FLAG"); // For undefined uI input address
+		
+		addr=5'd31; #10;
+		if(out == 37'd0) $display("FLAG"); // For undefined uI input address
+		
 	end
 
 endmodule
