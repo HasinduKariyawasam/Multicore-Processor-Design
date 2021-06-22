@@ -7,14 +7,14 @@ module Logic(Z,IR,naddr,br,out);
 	
 	reg [4:0] out;
 	
-	always @ (*)
+	always @ (*) // activate whenever an input changes
 		begin
 			if (br == 0)
 				out = naddr;
 			else
 				if ((Z == 1) & (IR == 5'b01010))				// to quit JUMP
 					out = 5'b01101;
-				else											// any other instruction or JUMP
+				else													// any other instruction or to JUMP
 					out = IR;
 				end
 
