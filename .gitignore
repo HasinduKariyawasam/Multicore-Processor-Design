@@ -3,22 +3,43 @@
 
 # quartus project files
 Control_unit.qpf
+AC.qpf
+R2.qpf
+R15.qpf
 
 # other quartus files and folders
 Control_unit_nativelink_simulation.rpt
+AC_nativelink_simulation.rpt
+R2_nativelink_simulation.rpt
+R15_nativelink_simulation.rpt
 Control_unit.qsf
+AC.qsf
+R2.qsf
+R15.qsf
 Control_unit.qws
+AC.qws
+R2.qws
+R15.qws
 Logic_testbench.v.bak
 ROM_testbench.v.bak
 MAP_testbench.v.bak
 nareg_testbench.v.bak
-ctrlu_top.v.bak
 ctrluT_testbench.v.bak
+RegAC_testbench.v.bak
+R2_testbench.v.bak
+Reg15_testbench.v.bak
+ctrlu_top.v.bak
 Logic.v.bak
 MAP.v.bak
 nareg.v.bak
 ROM.v.bak
+RegAC.v.bak
+R2.v.bak
+Reg15.v.bak
 db/
 incremental_db/
 output_files/
 simulation/
+
+# other
+R2.pdf
