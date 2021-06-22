@@ -14,7 +14,7 @@ module Logic(Z,IR,naddr,br,out);
 			else
 				if ((Z == 1) & (IR == 5'b01010))				// to quit JUMP
 					out = 5'b01101;
-				else													// any other instruction
+				else											// any other instruction or JUMP
 					out = IR;
 				end
 
