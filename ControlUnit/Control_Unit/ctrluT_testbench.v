@@ -5,7 +5,7 @@ module ctrluT_testbench();
 	reg br,z;
 	reg [7:0] ir;
 	reg [4:0] na;
-	wire [4:0] out;
+	wire [36:0] out;
 	
 	ctrlu_top ctrlu_top1(clk,br,z,ir,na,out);
 	
