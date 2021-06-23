@@ -17,9 +17,9 @@ module testbench();
 		ctrl = 3'b011;		#10;
 		if(out !== 16'd10) $display("M8Z failed");
 		ctrl = 3'b100;		#10;
-		if(out !== 16'd2) $display("M14Z failed");
+		if(out !== 16'd3) $display("MOV13 failed");
 		ctrl = 3'b101;		#10;
-		if(out !== 16'd2) $display("RSH2 failed");
+		if(out !== 16'd0) $display("MOV02 failed");
 		ctrl = 3'b110;		#10;
 		if(out !== 16'd0) $display("ZERO failed");
 	end
