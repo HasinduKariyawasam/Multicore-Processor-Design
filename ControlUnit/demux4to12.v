@@ -17,6 +17,7 @@ module demux4to12(input  [3:0]  address,
 			4'b1010: paths = 12'b000000000100;
 			4'b1011: paths = 12'b000000000010;
 			4'b1100: paths = 12'b000000000001;
+			default: paths = 12'b000000000000;
 		endcase
 	
 	assign out = paths;
