@@ -25,6 +25,7 @@ module MAP_testbench();
 		ir = 8'd208; #200; // INCI
 		ir = 8'd224; #200; // STORE
 		ir = 8'd240; #200; // RSTI
+		ir = 8'd255; #200; // START of the machine
 		ir = 8'd2; #200; // Undefined states
 		ir = 8'd241; #200; // Undefined states			
 	end
