@@ -17,7 +17,9 @@ module RegAC_testbench();
 		#50;
 		WR=1'b1; LDBUS=1'b0; LDALU=1'b0; BIN = 16'd16; #100; // WRITE to AC
 		WR=1'b0; LDBUS=1'b1; LDALU=1'b0; BIN = 16'dx; #100; // LOAD BUS
-				
+		WR=1'b1; LDBUS=1'b0; LDALU=1'b0; BIN = 16'd64; #100; // WRITE to AC
+		WR=1'b0; LDBUS=1'b0; LDALU=1'b1; BIN = 16'd32; #100; // LOAD ALU
+		WR=1'b0; LDBUS=1'b1; LDALU=1'b0; BIN = 16'dx; #100; // LOAD BUS
 	end
 
 endmodule

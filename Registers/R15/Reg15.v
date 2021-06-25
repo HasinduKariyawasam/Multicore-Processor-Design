@@ -35,7 +35,11 @@ module Reg15(clk,BIN,RST,WR,LDBUS,LDALU,BOUT,ALU);
 		begin
 			if (LDBUS == 1)
 				BOUT = register;
-			else if (LDALU == 1)
-				ALU = register;
+			else 
+				begin
+					BOUT = 16'bz;
+					if (LDALU == 1)
+						ALU = register;
+				end
 		end
 endmodule

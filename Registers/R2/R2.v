@@ -36,5 +36,7 @@ module R2(clk,BIN,RST,RST2,WR,LDBUS,INC,BOUT);
 		begin
 			if (LDBUS == 1)
 				BOUT = reg2;
+			else
+				BOUT = 16'bz;
 		end
 endmodule

@@ -32,9 +32,18 @@ module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
 	always @ (~clk)
 		begin
 			if (LDBUS == 1)
-				BOUT = register;
-			else if (LDALU == 1)
-				ALU = register;
+				begin
+					BOUT = register;
+					ALU = 16'bz;
+				end
+			else 
+				begin
+					BOUT = 16'bz;
+					if (LDALU == 1)
+						ALU = register;
+					else
+						ALU = 16'bz;
+				end
 		end
 	
 endmodule
