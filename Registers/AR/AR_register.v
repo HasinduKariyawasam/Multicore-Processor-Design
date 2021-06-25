@@ -15,7 +15,6 @@ BIN - The BUS to write to the register
 	input WR;
 	output [15:0] DMADDR;
 
-	reg unsigned [15:0] BOUT;
 	reg unsigned [15:0] register;
 	
 	
