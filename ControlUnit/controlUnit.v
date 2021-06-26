@@ -1,8 +1,7 @@
 // control unit of the processor
 module controlUnit (input clk, Z,
                     input [15:0] IR,
-                    output	BR,
-							MEMREAD, MEMWR,
+                    output	MEMREAD, MEMWR,
 							INSREAD,
 							WAR, WDR, WPC, WIR, WR1, WR2, WR3, WR4, WR5, WR6, WR7, WAC,
 							RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
