@@ -1,9 +1,8 @@
-module R3467(clk,BIN,RST,RST3467,WR,LDBUS,BOUT);
+module R3467(clk,BIN,RST,WR,LDBUS,BOUT);
 	/*
 		Control signals:
 		clk - Clock signal
 		RST - Common RESET control signal
-		RST3467 - RESET signal to only reset R3467
 		WR - Control signal to write to register
 		LDBUS - Control signal to load content in the register to the BUS
 		
@@ -13,7 +12,7 @@ module R3467(clk,BIN,RST,RST3467,WR,LDBUS,BOUT);
 		ALU - The wire to the MUX from the register
 	*/
 
-	input clk, RST, RST3467, WR, LDBUS, INC;     // Clock and Control signals
+	input clk, RST, WR, LDBUS, INC;     // Clock and Control signals
 	input [15:0] BIN;
 	output [15:0] BOUT;
 	
@@ -22,7 +21,7 @@ module R3467(clk,BIN,RST,RST3467,WR,LDBUS,BOUT);
 	
 	always @ (posedge clk)
 		begin
-			if (RST == 1 || RST3467 == 1)
+			if (RST == 1)
 				reg3467 <= 0;
 				
 			if (WR == 1)
