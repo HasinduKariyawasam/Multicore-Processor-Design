@@ -1,9 +1,8 @@
-module R2(clk,BIN,RST,RST2,WR,LDBUS,INC,BOUT);
+module R2(clk,BIN,RST,WR,LDBUS,INC,BOUT);
 	/*
 		Control signals:
 		clk - Clock signal
 		RST - Common RESET control signal
-		RST2 - RESET signal to only reset R2
 		WR - Control signal to write to register
 		LDBUS - Control signal to load content in the register to the BUS
 		INC - Increment R2 by 1
@@ -14,7 +13,7 @@ module R2(clk,BIN,RST,RST2,WR,LDBUS,INC,BOUT);
 		ALU - The wire to the MUX from the register
 	*/
 
-	input clk, RST, RST2, WR, LDBUS, INC;     // Clock and Control signals
+	input clk, RST, WR, LDBUS, INC;     // Clock and Control signals
 	input [15:0] BIN;
 	output [15:0] BOUT;
 	
@@ -23,7 +22,7 @@ module R2(clk,BIN,RST,RST2,WR,LDBUS,INC,BOUT);
 	
 	always @ (posedge clk)
 		begin
-			if (RST == 1 || RST2 == 1)
+			if (RST == 1)
 				reg2 <= 0;
 				
 			if (INC == 1)
