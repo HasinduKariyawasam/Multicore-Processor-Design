@@ -36,6 +36,7 @@ ROM.v.bak
 RegAC.v.bak
 R2.v.bak
 Reg15.v.bak
+registerFile_testbench.v.bak
 db/
 incremental_db/
 output_files/

@@ -12,7 +12,7 @@ module registerFile_testbench ();
     wire [15:0] DMADDR, IMADDR, DOUT, ACOUT, ALUOUT, BOUT, IROUT;
 
     // device under test
-    registerFile dut(clk,
+    registerFile dut(clk, MEMREAD,
                     WAR, WDR, WPC, WIR, WR1, WR2, WR3, WR4, WR5, WR6, WR7, WAC,
 		            RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
                     LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
@@ -29,6 +29,7 @@ module registerFile_testbench ();
         end
 
     initial begin
+			MEMREAD = 0;
         // testing read/write register
         #10;
         BIN = 16'd12; WAC = 1; #20;
@@ -89,7 +90,7 @@ module registerFile_testbench ();
         // ALU load and IR to CU
         #18;
         WR2 = 0; RR2 = 0;
-        LDALUIR = 1; #2;
+        LDALUIR = 1; ALUMUX = 3'b001; #2;
         if (ALUOUT !== 16'd212)
             $display("Failed ALUIR load");
         if (IROUT !== 16'd212)
