@@ -38,7 +38,7 @@ module registerFile (input clk, MEMREAD,
     // R7 register
     R3467 R7(clk, BIN, RSTR7, WR7, RR7, REGOUT);
     // IDX register
-    IDREG #(0) IDX(clk, LDALUIDX, IDXALU);
+    IDREG #(3) IDX(clk, LDALUIDX, IDXALU);
     // IDY register
     IDREG #(0) IDY(clk, LDALUIDY, IDYALU);
 

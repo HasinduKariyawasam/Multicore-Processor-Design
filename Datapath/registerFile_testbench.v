@@ -154,7 +154,16 @@ module registerFile_testbench ();
         RSTR3 = 1; #20;
         RR3 = 1; #2;
         if (BOUT !== 16'd0)
-            $display("Failed RSTR3");   
+            $display("Failed RSTR3");
+
+        // Loading IDX to ALU
+        #18;
+        RSTR3 = 0; RR3 = 0;
+        LDALUIDX = 1; ALUMUX = 3'b010; #20;
+        #2;
+        if (ALUOUT !== 16'd3)
+            $display("Failed loading IDX to ALU");
+
         $finish;
     end
 
