@@ -57,37 +57,38 @@ def compiler(opcode):
         else:
             return nonsingle_opcode + int(opcode)
             
+if __name__ == "__main__":            
 
-with open('program.txt','r') as pr:
-        lines = pr.readlines()
-        w = [l.split(" ") for l in lines]
-        words = flatten(w)
-        l = len(words)
-        print('Number of Opcodes and Operands in the program: ',l)
-        print(words)
-        print('===============================================')
-        for i in range(l):
-            if(';' in words[i]):
-                idx = words[i].find(';')
-                words[i] = words[i][:idx]
-            elif(',' in words[i]):
-                idx = words[i].find(',')
-                words[i] = words[i][:idx]
-        print(words)
-        
-instructions = []
-for word in words:
-    instr = compiler(word)
-    if (instr == "Require 1 operand" or instr == "Require 2 operands"):
-        continue
-    else:
-        instructions.append(instr)
+    with open('program.txt','r') as pr:
+            lines = pr.readlines()
+            w = [l.split(" ") for l in lines]
+            words = flatten(w)
+            l = len(words)
+            print('Number of Opcodes and Operands in the program: ',l)
+            print(words)
+            print('===============================================')
+            for i in range(l):
+                if(';' in words[i]):
+                    idx = words[i].find(';')
+                    words[i] = words[i][:idx]
+                elif(',' in words[i]):
+                    idx = words[i].find(',')
+                    words[i] = words[i][:idx]
+            print(words)
 
-print('===============================================')
-print("Equivalent binary conversion")
-print(instructions)
+    instructions = []
+    for word in words:
+        instr = compiler(word)
+        if (instr == "Require 1 operand" or instr == "Require 2 operands"):
+            continue
+        else:
+            instructions.append(instr)
 
-with open('INS_MEM.txt', 'w') as f:
-    for idx,instr in enumerate(instructions):
-        f.write("mem[16'd"+str(idx)+"] <= 16'd"+str(instr)+";")
-        f.write('\n')
+    print('===============================================')
+    print("Equivalent binary conversion")
+    print(instructions)
+
+    with open('INS_MEM.txt', 'w') as f:
+        for idx,instr in enumerate(instructions):
+            f.write("mem[16'd"+str(idx)+"] <= 16'd"+str(instr)+";")
+            f.write('\n')
