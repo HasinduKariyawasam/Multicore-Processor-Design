@@ -1,6 +1,6 @@
 `timescale 1us/10ns
 
-module testbench_RAM();
+module testbench_RAM_data();
 
 reg clk;            
 reg [15:0] address;
@@ -9,7 +9,7 @@ reg write_en;
 wire [15:0] DataOut;
 reg [15:0] Datain;
 
-ram_module dut(.ADDBUS(address),.DATAIN(Datain), .DATAOUT(DataOut),.clk(clk),.WR(write_en), .RD(read_en));
+ram_data dut(.ADDBUS(address),.DATAIN(Datain), .DATAOUT(DataOut),.clk(clk),.WR(write_en), .RD(read_en));
 
 always // CLOCK
 	begin
