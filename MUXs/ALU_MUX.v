@@ -22,14 +22,13 @@ IDX_ - Input from IDX_
 IDY_ - Input from IDY_
 
 */
-module ALU_MUX(ALUMUX, clk, IR_, R5_, R1_, IDX_, IDY_, MUXOUT);
+module ALU_MUX(ALUMUX, IR_, R5_, R1_, IDX_, IDY_, MUXOUT);
 
 	input [15:0] IR_;
 	input [15:0] R5_;
 	input [15:0] R1_;
 	input [15:0] IDX_;
 	input [15:0] IDY_;
-	input clk;
 	input [2:0] ALUMUX;
 	output [15:0] MUXOUT;
 

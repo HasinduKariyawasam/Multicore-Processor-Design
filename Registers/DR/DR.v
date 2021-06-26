@@ -8,6 +8,7 @@ module DR(clk,BIN,WR,LDBUS,BOUT,DM);
 		Datapaths:
 		BIN - The BUS to write to the register
 		BOUT - The BUS to read content from the register
+		DM - Output to the data memory
 	*/
 
 	input clk, WR, LDBUS;     // Clock and Control signals
