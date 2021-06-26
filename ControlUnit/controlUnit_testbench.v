@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 module controlUnit_testbench ();
 
-    reg clk, clk_test, reset_dut, reset, z;
+    reg clk, clk_test, reset, z;
     reg [15:0] IR;
 
     wire [42:0] out;
@@ -21,26 +21,20 @@ module controlUnit_testbench ();
                         out[6], out[5], out[4], out[3], out[2], out[1], out[0],
                         ALUMUX, ALUCTRL);
 
-    // generating the clock for the dut (device under test)
-    always 
-        if (~reset_dut) begin
-            clk = 1; #10; clk = 0; #10;
-        end
-
-    // generating the clock for testing
-    always 
-        if (~reset) begin
-            clk_test = 1; #14; clk_test = 0; #6;
-        end
-
     // begin by loading vectors and resetting
     initial 
         begin
-            $readmemb("controlSignals_testvectors.tv", testvectors);
+			$display("Reading test vectors");
+            $readmemb("controlUnit_testvectors.tv", testvectors);
+			$display("Test vectors read");
             vectornum = 0; errors = 0;
-            reset = 1; reset_dut = 1; 
-            #38; reset = 0;
-            #2; reset_dut = 0;
+			#38; reset = 0;
+			forever begin
+				clk_test = 1; #2;
+				clk = 1; #10;
+				clk = 0; #2;
+				clk_test = 0; #6;
+			end
         end
 
     // apply test vectors on the pos edge of clock_test

@@ -33,7 +33,7 @@ module ROM(addr,cs);
 			5'd23: out = 35'b00010000000000000000000000000000000;	// STORE3
 			5'd24: out = 35'b00000000000000000000000000100000000;	// INCI1
 			5'd25: out = 35'b00000000000000000000000000001000000;	// RSTI1
-			default: out = 35'd0; // Undefined microinstruction address
+			default: out = 35'd31; // Undefined microinstruction address - NOP
 		endcase
 	
 	assign cs = out;
