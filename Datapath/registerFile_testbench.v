@@ -87,9 +87,24 @@ module registerFile_testbench ();
         if (BOUT !== 16'd224)
             $display("Failed R2 write/read");
 
-        // ALU load and IR to CU
+        // Read/Write R15, R3467
         #18;
         WR2 = 0; RR2 = 0;
+        BIN = 16'd228; WR1 = 1; #20;
+        RR1 = 1; #2;
+        if (BOUT !== 16'd228)
+            $display("Failed R1 write/read");
+
+        #18;
+        WR1 = 0; RR1 = 0;
+        BIN = 16'd232; WR3 = 1; #20;
+        RR3 = 1; #2;
+        if (BOUT !== 16'd232)
+            $display("Failed R3 write/read");
+
+        // ALU load and IR to CU
+        #18;
+        WR3 = 0; RR3 = 0;
         LDALUIR = 1; ALUMUX = 3'b001; #2;
         if (ALUOUT !== 16'd212)
             $display("Failed ALUIR load");
