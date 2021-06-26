@@ -87,7 +87,7 @@ module registerFile_testbench ();
         if (BOUT !== 16'd224)
             $display("Failed R2 write/read");
 
-        // Read/Write R15, R3467
+        // Read/Write R1, R3
         #18;
         WR2 = 0; RR2 = 0;
         BIN = 16'd228; WR1 = 1; #20;
@@ -134,6 +134,27 @@ module registerFile_testbench ();
         if (BOUT !== 16'd0)
             $display("Failed RSTR2");
 
+        // ALU load for R1
+        #18;
+        RSTR2 = 0; RR2 = 0;
+        LDALUR1 = 1; ALUMUX = 3'b100; #2;
+        if (ALUOUT !== 16'd228)
+            $display("Failed ALUR1 load");
+
+        // Test for Reset in R1 and R3
+        #18;
+        LDALUR1 = 0;
+        RSTR1 = 1; #20;
+        RR1 = 1; #2;
+        if (BOUT !== 16'd0)
+            $display("Failed RSTR1");       
+        
+        #18;
+        RSTR1 = 0; RR1 = 0;
+        RSTR3 = 1; #20;
+        RR3 = 1; #2;
+        if (BOUT !== 16'd0)
+            $display("Failed RSTR3");   
         $finish;
     end
 
