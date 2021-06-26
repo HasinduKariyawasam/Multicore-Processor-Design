@@ -11,7 +11,7 @@ module DR(clk,BIN,WR,LDBUS,BOUT);
 		ALU - The wire to the MUX from the register
 	*/
 
-	input clk, WR, LDBUS, INC;     // Clock and Control signals
+	input clk, WR, LDBUS;     // Clock and Control signals
 	input [15:0] BIN;
 	output [15:0] BOUT;
 	

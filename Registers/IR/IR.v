@@ -21,10 +21,8 @@ module IR(clk,IM,WR,LDBUS,LDALU,BOUT,ALU,CU);
 	reg unsigned [15:0] register;	
 	reg unsigned [15:0] BOUT;					// output to BUS
 	reg unsigned [15:0] ALU;					// output to ALU
-	reg unsigned [15:0] CU;					// output to CU
 
-    always @(*)
-        CU <= register;
+    assign CU = register;
 
 	always @ (posedge clk)
 		begin

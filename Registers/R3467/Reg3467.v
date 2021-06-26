@@ -12,7 +12,7 @@ module R3467(clk,BIN,RST,WR,LDBUS,BOUT);
 		ALU - The wire to the MUX from the register
 	*/
 
-	input clk, RST, WR, LDBUS, INC;     // Clock and Control signals
+	input clk, RST, WR, LDBUS;     // Clock and Control signals
 	input [15:0] BIN;
 	output [15:0] BOUT;
 	
