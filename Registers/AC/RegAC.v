@@ -1,4 +1,4 @@
-module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
+module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU,RST);
 	/*
 		Control signals:
 		clk - Clock signal
@@ -12,7 +12,7 @@ module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
 		ALU - The wire to the ALU from the register
 	*/
 
-	input clk, WR, LDBUS, LDALU;     // Clock and Control Signals
+	input clk, WR, LDBUS, LDALU, RST;     // Clock and Control Signals
 	input [15:0] BIN;
 	output [15:0] BOUT;
 	output [15:0] ALU;
@@ -20,13 +20,13 @@ module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
 	reg unsigned [15:0] register;	
 	reg unsigned [15:0] BOUT;					// output to BUS
 	reg unsigned [15:0] ALU;					// output to ALU
-
-	initial register = 16'b0;
 	
 	always @ (posedge clk)
 		begin
 			if (WR == 1)
 				register <= BIN;
+			if (RST == 1)
+				register <= 16'b0;
 		end
 	
 	

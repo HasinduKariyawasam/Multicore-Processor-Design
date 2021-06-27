@@ -22,7 +22,7 @@ BIN - The BUS to write to the register
 
 	reg unsigned [15:0] register;
 
-	initial register = 16'b0000000000000000;
+	initial register = 16'b0;
 
 	assign IMADDR = register;	
 	

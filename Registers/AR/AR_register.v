@@ -1,9 +1,10 @@
-module AR_register(BIN, clk, WR, DMADDR);
+module AR_register(BIN, clk, WR, DMADDR, RST);
 
 /*
 Control signals:
 clk - Clock signal
 WR - Control signal to write to the register
+RST - Reset register
 
 Data paths:
 DMADDR - Wire that carries the data memory address from AR to data memory
@@ -12,7 +13,7 @@ BIN - The BUS to write to the register
 
 	input [15:0] BIN;
 	input clk;
-	input WR;
+	input WR, RST;
 	output [15:0] DMADDR;
 
 	reg unsigned [15:0] register;
@@ -24,6 +25,8 @@ BIN - The BUS to write to the register
 		begin
 			if (WR == 1)
 				register <= BIN;
+			if (RST == 1)
+				register <= 16'b0;
 		end
 	
 endmodule

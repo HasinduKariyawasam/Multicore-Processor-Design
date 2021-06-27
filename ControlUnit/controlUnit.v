@@ -7,7 +7,7 @@ module controlUnit (input clk, Z,
 							RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
 							LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
 							ALUOP, R2INC, PCINC,
-							RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7,
+							RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC,
 					output 	[2:0]	ALUMUX, ALUCTRL,
                     output wire [4:0] NXTADDR,
                     output wire BR);
@@ -40,7 +40,7 @@ module controlUnit (input clk, Z,
                                 RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
                                 LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
                                 ALUOP, R2INC, PCINC,
-                                RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7,
+                                RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC,
                                 ALUMUX, ALUCTRL, NXTADDR);
 
 endmodule //controlUnit

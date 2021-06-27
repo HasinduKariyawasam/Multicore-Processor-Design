@@ -4,7 +4,7 @@ module registerFile #(parameter [15:0] X = 16'b0,
                             WAR, WDR, WPC, WIR, WR1, WR2, WR3, WR4, WR5, WR6, WR7, WAC,
 							RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
                             LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
-                            RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7,
+                            RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC,
                             R2INC, PCINC,
                     input [2:0] ALUMUX,
                     input [15:0] INSIN, DIN, BIN,
@@ -16,11 +16,11 @@ module registerFile #(parameter [15:0] X = 16'b0,
     ALU_MUX ALU_MUX(ALUMUX, IRALU, R5ALU, R1ALU, IDXALU, IDYALU, ALUOUT);
 
     // AC register
-    RegAC AC(clk, BIN, WAC, RAC, LDALUAC, REGOUT, ACOUT);
+    RegAC AC(clk, BIN, WAC, RAC, LDALUAC, REGOUT, ACOUT, RSTAC);
     // AR register
-    AR_register AR(BIN, clk, WAR, DMADDR);
+    AR_register AR(BIN, clk, WAR, DMADDR, RSTAR);
     // DR register
-    DR DR(clk, BIN, WDR, RDR, REGOUT, DOUT);
+    DR DR(clk, BIN, WDR, RDR, REGOUT, DOUT, RSTDR);
     // IR register
     IR IR(clk, INSIN, WIR, RIR, LDALUIR, REGOUT, IRALU, IROUT);
     // PC register
