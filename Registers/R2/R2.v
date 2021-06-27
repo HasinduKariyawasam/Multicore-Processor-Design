@@ -26,7 +26,7 @@ module R2(clk,BIN,RST,WR,LDBUS,INC,BOUT);
 				reg2 <= 0;
 				
 			if (INC == 1)
-				reg2 <= reg2 + 1;
+				reg2 <= reg2 + 16'b1;
 			else if (WR == 1)
 				reg2 <= BIN;
 		end

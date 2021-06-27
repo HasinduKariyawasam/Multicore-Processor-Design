@@ -1,4 +1,6 @@
-module registerFile (input clk, MEMREAD, 
+module registerFile #(parameter [15:0] X = 16'b0,
+                    parameter [15:0] Y = 16'b0) 
+                    (input clk, MEMREAD, 
                             WAR, WDR, WPC, WIR, WR1, WR2, WR3, WR4, WR5, WR6, WR7, WAC,
 							RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
                             LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
@@ -38,9 +40,9 @@ module registerFile (input clk, MEMREAD,
     // R7 register
     R3467 R7(clk, BIN, RSTR7, WR7, RR7, REGOUT);
     // IDX register
-    IDREG #(3) IDX(clk, LDALUIDX, IDXALU);
+    IDREG #(X) IDX(clk, LDALUIDX, IDXALU);
     // IDY register
-    IDREG #(0) IDY(clk, LDALUIDY, IDYALU);
+    IDREG #(Y) IDY(clk, LDALUIDY, IDYALU);
 
     assign BOUT = MEMREAD ? DIN: REGOUT;
 
