@@ -49,7 +49,7 @@ module controlSignals(input			 clk,
 	assign R2INC = outreg[8];
 	assign PCINC = outreg[7];
 	assign RSTR2 = (outreg[6] == 1'b1 | outreg[5] == 1'b1);
-	assign {RSTR1, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC} = outreg[5] ? 6'b111111 : 6'b0;
+	assign {RSTR1, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC} = outreg[5] ? 9'b111111111 : 9'b0;
 	assign NXTADD = outreg[4:0];
 
 endmodule

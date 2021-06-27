@@ -8,14 +8,15 @@ module processor_testbench ();
     wire [15:0] INSIN, IMADDR; //test
     wire INSREAD;              //test
     wire [4:0] NXTADDR;        //test
-    wire BR;                   //test
-    wire [15:0] IROUT, ALUOUT, ACOUT, ALUIN;         //test
+    wire BR, ALUOP;                   //test
+    wire [15:0] IROUT, ALUOUT, ACOUT, ALUIN, BIN, BOUT;         //test
     wire [2:0] ALUMUX, ALUCTRL; //test
+    wire Z; //test
 
     // device under test
     processor dut(clk, DIN, DMADDR, DOUT, MEMREAD, MEMWR,
-                INSIN, IMADDR, INSREAD, NXTADDR, BR, IROUT, ALUOUT,
-                ACOUT, ALUIN, ALUMUX, ALUCTRL);
+                INSIN, IMADDR, INSREAD, NXTADDR, BR, ALUOP, IROUT, ALUOUT,
+                ACOUT, ALUIN, BIN, BOUT, ALUMUX, ALUCTRL, Z);
 
     // generate clock
     always 
@@ -24,7 +25,7 @@ module processor_testbench ();
         end
 
     initial begin
-        #1000;
+        #20000;
         $finish;
     end
 

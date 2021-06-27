@@ -26,7 +26,7 @@ module Reg15(clk,BIN,RST,WR,LDBUS,LDALU,BOUT,ALU);
 	always @ (posedge clk)
 		begin
 			if (RST == 1)
-				register <= 0;
+				register <= 16'b0;
 			else if (WR == 1)
 				register <= BIN;
 		end

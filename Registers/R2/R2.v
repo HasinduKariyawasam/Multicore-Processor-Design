@@ -23,7 +23,7 @@ module R2(clk,BIN,RST,WR,LDBUS,INC,BOUT);
 	always @ (posedge clk)
 		begin
 			if (RST == 1)
-				reg2 <= 0;
+				reg2 <= 16'b0;
 				
 			if (INC == 1)
 				reg2 <= reg2 + 16'b1;
