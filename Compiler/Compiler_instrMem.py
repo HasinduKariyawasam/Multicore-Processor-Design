@@ -88,7 +88,7 @@ if __name__ == "__main__":
     print("Equivalent binary conversion")
     print(instructions)
 
-    with open('Test.txt', 'w') as f:
-        for idx,instr in enumerate(instructions):
-            f.write("mem[16'd"+str(idx)+"] = 16'd"+str(instr)+";")
+    with open('INS_MEM.txt', 'w') as f:
+        for instr in instructions:
+            f.write("{0:016b}".format(instr))
             f.write('\n')
