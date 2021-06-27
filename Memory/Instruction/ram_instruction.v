@@ -54,7 +54,7 @@ module ram_instruction(DATAOUT,ADDBUS, RD, clk);
 	// 				DATAOUT = 16'bz;
 	// 			end
 	// 	end
-    always @ (negedge clk)
+    always @ (~clk)
 		begin
 			if (RD == 1)
 				begin
