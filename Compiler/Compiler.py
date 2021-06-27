@@ -90,5 +90,5 @@ if __name__ == "__main__":
 
     with open('INS_MEM.txt', 'w') as f:
         for idx,instr in enumerate(instructions):
-            f.write("mem[16'd"+str(idx)+"] <= 16'd"+str(instr)+";")
+            f.write("mem[16'd"+str(idx)+"] = 16'd"+str(instr)+";")
             f.write('\n')
