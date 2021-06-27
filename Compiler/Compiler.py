@@ -31,16 +31,16 @@ def compiler(opcode):
     
     if (opcodes.get(opcode) != None):
         if (opcode in single_opcodes): # Handling instructions with no operands
-            return opcodes.get(opcode)
+            return opcodes.get(opcode)<<8
         elif (opcode == 'MOV'): # Handling MOV instruction
-            mov_instr = opcodes.get(opcode)
+            mov_instr = opcodes.get(opcode)<<8
             count += 1
             return "Require 2 operands"
         elif (opcode == 'JMPNZ'): # Handling JUMP instruction
             jump_check = 1
-            return opcodes.get(opcode)
+            return opcodes.get(opcode)<<8
         else: # Handling other instructions
-            nonsingle_opcode = opcodes.get(opcode)
+            nonsingle_opcode = opcodes.get(opcode)<<8
             return "Require 1 operand"
     elif (regs.get(opcode) != None):
         if (count < 2): # Handling the rest of the MOV instruction - getting the first register
