@@ -14,6 +14,7 @@ module ALU(input [15:0] ALU_IN1, ALU_IN2,
 			3'b100: result = {14'b0, ALU_IN2[1], ALU_IN2[3]};	//MOV13 
 			3'b101: result = {14'b0, ALU_IN2[0], ALU_IN2[2]};	//MOV02
 			3'b110: result = 16'b0;								//ZERO
+			default : result = 16'bz;							//Undefined state
 		endcase
 		
 	assign ALU_OUT = result;

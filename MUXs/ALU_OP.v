@@ -10,7 +10,7 @@
 
 */
 
-module ALU_MUX(ALUOP, ALU_IN, BIN);
+module ALU_OP(ALUOP, ALU_IN, BIN, MUXOUT);
 
     input ALUOP;
 
