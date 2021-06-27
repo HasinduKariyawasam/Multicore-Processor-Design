@@ -10,17 +10,20 @@ module Logic(Z,IR,naddr,br,out);
 	always @ (*) // activate whenever an input changes
 		// currently IR all ones is mapped to FETCH1 in MAP.
 		begin
-			if (IR == 5'b00000) // START of the machine
-				out = IR;
-			else begin
+			// if (IR == 5'b00000) // START of the machine
+			// 	out = IR;
+			// else begin
 				if (br == 0)
 					out = naddr;
 				else
-					if ((Z == 1) & (IR == 5'b01001))				// to quit JUMP
-						out = 5'b01011;
-					else													// any other instruction or to JUMP
-						out = IR;
+					begin
+						if ((Z == 1) & (IR == 5'b01001))				// to quit JUMP
+							out = 5'b01011;
+						else													// any other instruction or to JUMP
+							out = IR;
 					end
+					
+				// end
 			end
 
 endmodule

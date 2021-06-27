@@ -28,7 +28,7 @@ module R3467(clk,BIN,RST,WR,LDBUS,BOUT);
 				reg3467 <= BIN;
 		end
 		
-	always @ (~clk)
+	always @ (LDBUS)
 		begin
 			if (LDBUS == 1)
 				BOUT = reg3467;

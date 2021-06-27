@@ -31,7 +31,7 @@ module R2(clk,BIN,RST,WR,LDBUS,INC,BOUT);
 				reg2 <= BIN;
 		end
 		
-	always @ (~clk)
+	always @ (LDBUS)
 		begin
 			if (LDBUS == 1)
 				BOUT = reg2;

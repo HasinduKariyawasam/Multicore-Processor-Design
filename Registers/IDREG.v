@@ -1,8 +1,8 @@
 module IDREG #(parameter [15:0] ID = 16'b0) (input clk, 
-															input LDALU, 
-															output reg [15:0] TOALU);
+											input LDALU, 
+											output reg [15:0] TOALU);
 
-	always @ (posedge clk)
+	always @ (LDALU)
 		begin
 			if (LDALU)
 				TOALU <= ID;

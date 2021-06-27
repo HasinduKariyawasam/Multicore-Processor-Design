@@ -27,7 +27,7 @@ module DR(clk,BIN,WR,LDBUS,BOUT,DM);
 				register <= BIN;
 		end
 		
-	always @ (~clk)
+	always @ (LDBUS)
 		begin
 			if (LDBUS == 1)
 				BOUT = register;

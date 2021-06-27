@@ -31,7 +31,7 @@ module Reg15(clk,BIN,RST,WR,LDBUS,LDALU,BOUT,ALU);
 				register <= BIN;
 		end
 		
-	always @ (~clk)
+	always @ (LDBUS or LDALU)
 		begin
 			if (LDBUS == 1)
 				BOUT = register;

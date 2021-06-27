@@ -32,7 +32,7 @@ module IR(clk,IM,WR,LDBUS,LDALU,BOUT,ALU,CU);
 				register <= IM;
 		end
 		
-	always @ (~clk)
+	always @ (LDBUS or LDALU)
 		begin
 			if (LDBUS == 1)
 				BOUT = register;

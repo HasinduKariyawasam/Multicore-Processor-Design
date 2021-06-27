@@ -16,7 +16,9 @@ module controlSignals(input			 clk,
 	
 	demux4to12 WRREG(outreg[29:26], {WAR, WDR, WPC, WIR, WR1, WR2, WR3, WR4, WR5, WR6, WR7, WAC});
 	demux4to12 REREG(outreg[25:22], {RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC});
-		
+
+	//initial outreg = 34'b0001010000000000000000000000000001;	
+	
 	always @ (negedge clk)
 		begin
 			if (ROMIN[34])							//SP = 1

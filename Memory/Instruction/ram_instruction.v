@@ -54,15 +54,15 @@ module ram_instruction(DATAOUT,ADDBUS, RD, clk);
 	// 				DATAOUT = 16'bz;
 	// 			end
 	// 	end
-    always @ (~clk)
+    always @ (RD)
 		begin
 			if (RD == 1)
 				begin
-					DATAOUT <= mem[ADDBUS];
+					DATAOUT = mem[ADDBUS];
 				end
 			else 
 				begin
-					DATAOUT <= 16'bz;
+					DATAOUT = 16'bz;
 				end
 		end
 endmodule

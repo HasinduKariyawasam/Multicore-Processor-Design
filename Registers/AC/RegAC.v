@@ -21,6 +21,7 @@ module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
 	reg unsigned [15:0] BOUT;					// output to BUS
 	reg unsigned [15:0] ALU;					// output to ALU
 
+	initial register = 16'b0;
 	
 	always @ (posedge clk)
 		begin
@@ -29,7 +30,7 @@ module RegAC(clk,BIN,WR,LDBUS,LDALU,BOUT,ALU);
 		end
 	
 	
-	always @ (~clk)
+	always @ (LDBUS or LDALU)
 		begin
 			if (LDBUS == 1)
 				begin
