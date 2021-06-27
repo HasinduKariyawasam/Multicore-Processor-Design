@@ -40,18 +40,29 @@ module ram_instruction(DATAOUT,ADDBUS, RD, clk);
 //    mem [16'd19]  = 16'd80;
 //    mem [16'd20]  = 16'd3;
 //	 
-		$readmemb("Y:/Documents/UOM Semester 5/Processor Phase 3/Instruction_memory/simulation/modelsim/INS_MEM.txt", mem);
+		$readmemb("D:/FPGA/Multicore Processor Design/Compiler/INS_MEM.txt", mem);
 	end
 	
-	always @ (~clk)
+	// always @ (~clk)
+	// 	begin
+	// 		if (RD == 1)
+	// 			begin
+	// 				DATAOUT = mem[ADDBUS];
+	// 			end
+	// 		else 
+	// 			begin
+	// 				DATAOUT = 16'bz;
+	// 			end
+	// 	end
+    always @ (negedge clk)
 		begin
 			if (RD == 1)
 				begin
-					DATAOUT = mem[ADDBUS];
+					DATAOUT <= mem[ADDBUS];
 				end
 			else 
 				begin
-					DATAOUT = 16'bz;
+					DATAOUT <= 16'bz;
 				end
 		end
 endmodule

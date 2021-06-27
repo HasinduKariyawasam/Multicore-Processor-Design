@@ -8,7 +8,9 @@ module controlUnit (input clk, Z,
 							LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
 							ALUOP, R2INC, PCINC,
 							RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7,
-					output 	[2:0]	ALUMUX, ALUCTRL);
+					output 	[2:0]	ALUMUX, ALUCTRL,
+                    output wire [4:0] NXTADDR,
+                    output wire BR);
 
     /*
     ------ Inputs ------
@@ -25,8 +27,8 @@ module controlUnit (input clk, Z,
     ALUCTRL = select ALU operation
     */
 
-    wire BR;
-    wire [4:0] NXTADDR;
+    //wire BR;              //test
+    //wire [4:0] NXTADDR;   //test
     wire [34:0] ROMOUT;
 
     // MAP, logic and ROM
