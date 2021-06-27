@@ -16,15 +16,15 @@ module IR(clk,IM,WR,LDBUS,LDALU,BOUT,ALU,CU);
 	input [15:0] IM;
 	output [15:0] BOUT;
 	output [15:0] ALU;
-    output [15:0] CU;
+   output [15:0] CU;
 	
 	reg unsigned [15:0] register;	
-    initial register = 16'b1111111100000000;
+   initial register = 16'b1111111100000000;
 
 	reg unsigned [15:0] BOUT;					// output to BUS
 	reg unsigned [15:0] ALU;					// output to ALU
 
-    assign CU = register;
+   assign CU = register;
 
 	always @ (posedge clk)
 		begin
