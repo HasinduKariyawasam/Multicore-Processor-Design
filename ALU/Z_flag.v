@@ -1,14 +1,11 @@
-module Z_flag(input Z, 
+module Z_flag(input clk, Z, 
             output reg Zout);
 
-    always @(Z) begin
-        if (Z === 1 || Z === 0)
+    always @(posedge clk) begin
+        if (Z == 1 || Z == 0)
             Zout = Z;
+        else
+            Zout = Zout;
     end
-
-    // always @(negedge Z) begin
-    //     if (Z === 1 || Z === 0)
-    //         Zout <= Z;
-    // end
 
 endmodule

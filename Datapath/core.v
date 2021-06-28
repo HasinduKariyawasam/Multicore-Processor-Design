@@ -33,7 +33,7 @@ module core #(parameter [15:0] X = 16'b0,
     
     ALU ALU(ACOUT, ALUIN, ALUCTRL, ALUOUT, Zin);
 
-    Z_flag ZFlag(Zin, Z);
+    Z_flag ZFlag(clk, Zin, Z);
 
     ALU_OP ALU_OP(ALUOP, ALUOUT, BOUT, BIN);
 
