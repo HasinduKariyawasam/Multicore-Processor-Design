@@ -11,12 +11,12 @@ module processor_testbench ();
     wire BR, ALUOP;                   //test
     wire [15:0] IROUT, ALUOUT, ACOUT, ALUIN, BIN, BOUT;         //test
     wire [2:0] ALUMUX, ALUCTRL; //test
-    wire Z; //test
+    wire Z, Z_2; //test
 
     // device under test
     processor dut(clk, DIN, DMADDR, DOUT, MEMREAD, MEMWR,
                 INSIN, IMADDR, INSREAD, NXTADDR, BR, ALUOP, IROUT, ALUOUT,
-                ACOUT, ALUIN, BIN, BOUT, ALUMUX, ALUCTRL, Z);
+                ACOUT, ALUIN, BIN, BOUT, ALUMUX, ALUCTRL, Z, Z_2);
 
     // generate clock
     always 
