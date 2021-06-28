@@ -13,7 +13,7 @@ module processor (input clk,
     //wire [15:0] IMADDR;
     //wire INSREAD;
 
-    core #(0,0) core1(clk, INSIN, DIN,
+    core #(0,1) core1(clk, INSIN, DIN,
                     DMADDR, IMADDR, DOUT,
                     MEMREAD, MEMWR, INSREAD, NXTADDR, BR, ALUOP, IROUT, ALUOUT, ACOUT, ALUIN,
                     BIN, BOUT, ALUMUX, ALUCTRL, Z);

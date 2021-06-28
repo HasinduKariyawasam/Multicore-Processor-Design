@@ -23,6 +23,7 @@ module processor_testbench ();
         begin
             clk = 1; #10; clk = 0; #10;
         end
+    
 
     initial begin
         #20000;

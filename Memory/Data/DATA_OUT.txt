@@ -1,0 +1,24 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/processor_testbench/dut/dataMemory/mem
+// format=bin addressradix=h dataradix=b version=1.0 wordsperline=1 noaddress
+0000000000000001
+0000000000000010
+0000000000000011
+0000000000000100
+0000000000000001
+0000000000000010
+0000000000000011
+0000000000000100
+xxxxxxxxxxxxxxxx
+0000000000001010
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx

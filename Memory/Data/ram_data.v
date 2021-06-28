@@ -20,13 +20,16 @@ module ram_data(DATAOUT,ADDBUS,DATAIN,WR, RD, clk);
    reg [15:0] mem [1023:0];
 
 	initial begin
-		mem[16'd0] = 16'd10;
-		mem[16'd1] = 16'd12;
+		// mem[16'd0] = 16'd10;
+		// mem[16'd1] = 16'd12;
+		$readmemb("D:/FPGA/Multicore Processor Design/Memory/Data/DATA_MEM.txt", mem);
 	end
 
     always @(posedge clk) begin
-			if (WR)
-            mem[ADDBUS] <= DATAIN;
+			if (WR) begin
+				mem[ADDBUS] <= DATAIN;
+			end
+			$writememb("D:/FPGA/Multicore Processor Design/Memory/Data/DATA_OUT.txt",mem,0,20);    	
    end
 	
 	
