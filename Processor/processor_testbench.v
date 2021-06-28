@@ -26,7 +26,7 @@ module processor_testbench ();
     
 
     initial begin
-        #20000;
+        #200000;
         $finish;
     end
 
