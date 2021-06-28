@@ -4,7 +4,7 @@ module ram_data(DATAOUT,ADDBUS,DATAIN,WR, RD, clk);
 	
 	clk - Clock signal
 	WR - Write to memory
-	RD - Read to memory
+	RD - Read from memory
 		
 	Datapaths:
 	
@@ -17,14 +17,20 @@ module ram_data(DATAOUT,ADDBUS,DATAIN,WR, RD, clk);
    input [15:0] DATAIN;
    input [15:0] ADDBUS;
    input WR,RD, clk;
-   reg [15:0] mem [65535:0];
+   reg [15:0] mem [1023:0];
+
+	initial begin
+		mem[16'd0] = 16'd10;
+		mem[16'd1] = 16'd12;
+	end
+
     always @(posedge clk) begin
 			if (WR)
             mem[ADDBUS] <= DATAIN;
    end
 	
 	
-	always @ (~clk)
+	always @ (RD)
 		begin
 			if (RD == 1)
 				begin

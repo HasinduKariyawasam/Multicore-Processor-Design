@@ -2,7 +2,7 @@
 module processor_testbench ();
 
     reg clk;
-    reg [15:0] DIN;
+    wire [15:0] DIN;
     wire [15:0] DMADDR, DOUT;
     wire MEMREAD, MEMWR;
     wire [15:0] INSIN, IMADDR; //test

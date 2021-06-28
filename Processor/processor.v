@@ -1,6 +1,6 @@
 module processor (input clk,
-                input [15:0] DIN,
-                output [15:0] DMADDR, DOUT,
+                output wire [15:0] DIN,
+                output wire [15:0] DMADDR, DOUT,
                 output MEMREAD, MEMWR,
                 output wire [15:0] INSIN, IMADDR, 
                 output wire INSREAD,
@@ -19,5 +19,7 @@ module processor (input clk,
                     BIN, BOUT, ALUMUX, ALUCTRL, Z);
 
     ram_instruction instructionMemory(INSIN, IMADDR, INSREAD, clk);
+
+    ram_data dataMemory(DIN, DMADDR, DOUT, MEMWR, MEMREAD, clk);
 
 endmodule //processor

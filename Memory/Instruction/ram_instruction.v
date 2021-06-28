@@ -14,7 +14,7 @@ module ram_instruction(DATAOUT,ADDBUS, RD, clk);
    output reg [15:0] DATAOUT;
    input [15:0] ADDBUS;
    input RD, clk;
-   reg [15:0] mem [65535:0];
+   reg [15:0] mem [1023:0];
 
    initial begin
 //	
