@@ -45,7 +45,7 @@ module Registers(
     r register15(clk, MEMWR, WRITE_MEM, R15, BOUT15);
     r register16(clk, MEMWR, WRITE_MEM, R16, BOUT16);
 
-    always @(negedge clk)
+    always @(posedge clk)
         begin
             case(ROW_ADDR)
                 4'b1000 : TO_DATA_MEM = {BOUT1,  BOUT2,  BOUT3	, BOUT4 };
