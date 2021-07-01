@@ -45,3 +45,11 @@ simulation/
 # other
 R2.pdf
 ISA_OPCODE.csv
+*.rpt
+*.qpf
+*.qws
+*.v.bak
+*.v.bak
+*.qsf
+Compiler/INS_MEM.txt
+Compiler/program.txt
