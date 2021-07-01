@@ -11,9 +11,9 @@ module register_ctrl(
 
         input state_ctrl_store,
 		  
-		  output reg [3:0] rowaddr,
+		output reg [3:0] rowaddr,
 		  
-		  output reg writemem,
+		output reg writemem,
 
         output reg state_ctrl_done);
 

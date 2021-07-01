@@ -17,7 +17,7 @@ module ram_data(DATAOUT,ADDBUS,DATAIN,WR, RD, clk);
    input [63:0] DATAIN;
    input [15:0] ADDBUS;
    input WR,RD, clk;
-   reg [63:0] mem [511:0];
+   reg [63:0] mem [15:0];
 
 	initial begin
 		mem[16'd0] = (64'd1 << 48) + (64'd5 << 32) + (64'd9 << 16) + 64'd13;
