@@ -1,6 +1,6 @@
 module dataCtrlandDM (input clk, MEMWRITE,
                         input [3:0] MR,
-                        input [15:0] MADDR1, MADDR2, MADDR3, MADDR4.
+                        input [15:0] MADDR1, MADDR2, MADDR3, MADDR4,
                         input [63:0] DATAIN,
                         output [15:0] DOUT1, DOUT2, DOUT3, DOUT4);
 
