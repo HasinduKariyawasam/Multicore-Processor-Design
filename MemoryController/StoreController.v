@@ -1,6 +1,7 @@
 module StoreController (input clk,
                         input op1, op2, op3, op4,
-                        output memWrite, swEnable, memWrtoReg,
+                        output wire memWR, 
+                        output swEnable, memWrtoReg,
                         output [3:0] rowaddr,
                         output [15:0] rowaddrtoSw);
 
@@ -14,21 +15,23 @@ module StoreController (input clk,
     rowaddrtoSw = memory row address (to switch)
 
     opendFlag = operation end flag (from register controller)
-    startStore = start storing (to register controller)
     storeEnd = store has ended (from register controller)
+    memWR = write to memory (from state machine to register controller)
     */
     
-    wire opendFlag, startStore, storeEnd;
+    wire opendFlag, storeEnd;
 
     // state machine
     storeStateMachine stateMachine(clk, opendFlag, storeEnd,
-                                    memWrite, swEnable);
+                                    memWR, swEnable);
 
     // register controller
-    register_ctrl regControl(clk, startStore, rowaddr, rowaddrtoSw,
-                            memWrite, storeEnd);
+    register_ctrl regControl(clk, memWR, rowaddr, rowaddrtoSw,
+                            memWrtoReg, storeEnd);
 
     // operation end flag
     opend_flag opend_flag(opendFlag, op1, op2, op3, op4);
+
+    // assign memWrite = memWR;
 
 endmodule //StoreController
