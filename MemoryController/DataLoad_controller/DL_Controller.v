@@ -13,6 +13,7 @@ module DL_Controller(input [63:0] data,
         MEMADDR - Row address in the data memory
         DOUTi - 16-bit data for the i'th core
     */
+    wire [15:0] out1, out2, out3, out4;
 
     assign MEMREAD = (MR1 == 1 && MR2 == 1 && MR3 == 1 && MR4 == 1) ? 1'b1 : 1'b0; // output memread control signal to Data Memory
     assign MEMADDR = {2'b0, MADDR1[15:2]}; // output data memory row id
@@ -20,18 +21,23 @@ module DL_Controller(input [63:0] data,
 
     DL_MUX DL_MUX1(MADDR1[1:0],
                 data[63:48], data[47:32], data[31:16], data[15:0],
-                DOUT1);
+                out1);
     
     DL_MUX DL_MUX2(MADDR2[1:0],
                 data[63:48], data[47:32], data[31:16], data[15:0],
-                DOUT2);
+                out2);
 
     DL_MUX DL_MUX3(MADDR3[1:0],
                 data[63:48], data[47:32], data[31:16], data[15:0],
-                DOUT3);
+                out3);
 
     DL_MUX DL_MUX4(MADDR4[1:0],
                 data[63:48], data[47:32], data[31:16], data[15:0],
-                DOUT4);
+                out4);
+
+    assign DOUT1 = MEMREAD ? out1: 16'bz;
+    assign DOUT2 = MEMREAD ? out2: 16'bz;
+    assign DOUT3 = MEMREAD ? out3: 16'bz;
+    assign DOUT4 = MEMREAD ? out4: 16'bz;
 
 endmodule
