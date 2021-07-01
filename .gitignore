@@ -53,3 +53,8 @@ simulation/
 # other
 R2.pdf
 ISA_OPCODE.csv
+*.qpf
+*.bak
+*.qsf
+*.qws
+*.rpt
