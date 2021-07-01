@@ -2,24 +2,24 @@
 module controlSignals_testbench ();
 
     reg clk, clk_test, reset;
-    reg [34:0] ROMIN;
+    reg [35:0] ROMIN;
     reg [3:0] WR, RR;
-    wire [43:0] out;
+    wire [44:0] out;
     wire [2:0] ALUMUX, ALUCTRL;
     wire [4:0] NXTADD;
 
-    reg [54:0] expectedOut;
+    reg [55:0] expectedOut;
     reg [31:0] vectornum, errors;
-    reg [89:0] testvectors[10000:0];
+    reg [91:0] testvectors[10000:0];
 
     // device under test
     controlSignals dut(clk, ROMIN, WR, RR,
-                        out[43], out[42], out[41], out[40],
-                        out[39], out[38], out[37], out[36], out[35], out[34], out[33], out[32], out[31], out[30], out[29], out[28],
-                        out[27], out[26], out[25], out[24], out[23], out[22], out[21], out[20], out[19], out[18], out[17], out[16],
-                        out[15], out[14], out[13], out[12], out[11], out[10],
-                        out[9], out[8], out[7], 
-                        out[6], out[5], out[4], out[3], out[2], out[1], out[0],
+                        out[44], out[43], out[42], out[41], 
+                        out[40], out[39], out[38], out[37], out[36], out[35], out[34], out[33], out[32], out[31], out[30], out[29], 
+                        out[28], out[27], out[26], out[25], out[24], out[23], out[22], out[21], out[20], out[19], out[18], out[17], 
+                        out[16], out[15], out[14], out[13], out[12], out[11], 
+                        out[10], out[9], out[8], 
+                        out[7], out[6], out[5], out[4], out[3], out[2], out[1], out[0],
                         ALUMUX, ALUCTRL, NXTADD);
 
     // generating the clock for the dut

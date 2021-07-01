@@ -7,10 +7,10 @@ module controlUnit (input clk, Z,
 							RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
 							LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
 							ALUOP, R2INC, PCINC,
-							RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC,
-					output 	[2:0]	ALUMUX, ALUCTRL,
-                    output wire [4:0] NXTADDR,
-                    output wire BR);
+							RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC, OPEND,
+					output 	[2:0]	ALUMUX, ALUCTRL);
+                    //output wire [4:0] NXTADDR,
+                    //output wire BR);
 
     /*
     ------ Inputs ------
@@ -27,9 +27,9 @@ module controlUnit (input clk, Z,
     ALUCTRL = select ALU operation
     */
 
-    //wire BR;              //test
-    //wire [4:0] NXTADDR;   //test
-    wire [34:0] ROMOUT;
+    wire BR;              //test
+    wire [4:0] NXTADDR;   //test
+    wire [35:0] ROMOUT;
 
     // MAP, logic and ROM
     ctrlu_top logicandROM(clk, BR, Z, IR[15:8], NXTADDR, ROMOUT);
@@ -40,7 +40,7 @@ module controlUnit (input clk, Z,
                                 RAR, RDR, RPC, RIR, RR1, RR2, RR3, RR4, RR5, RR6, RR7, RAC,
                                 LDALUIR, LDALUIDX, LDALUIDY, LDALUR1, LDALUR5, LDALUAC,
                                 ALUOP, R2INC, PCINC,
-                                RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC,
+                                RSTR1, RSTR2, RSTR3, RSTR4, RSTR5, RSTR6, RSTR7, RSTAR, RSTDR, RSTAC, OPEND,
                                 ALUMUX, ALUCTRL, NXTADDR);
 
 endmodule //controlUnit
