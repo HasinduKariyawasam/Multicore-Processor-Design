@@ -51,5 +51,4 @@ ISA_OPCODE.csv
 *.v.bak
 *.v.bak
 *.qsf
-Compiler/INS_MEM.txt
-Compiler/program.txt
+
