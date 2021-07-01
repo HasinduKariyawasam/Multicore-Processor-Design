@@ -3,13 +3,12 @@ module StoreCtrlwithRegisters (input clk,
                                input [3:0] regAddr1, regAddr2, regAddr3, regAddr4,
                                input [15:0] data1, data2, data3, data4,
                                input WR1, WR2, WR3, WR4,
-                               //output memWR,
+                               output swEnable,
                                output wire memWrtoReg,
                                output [15:0] memAddr,
                                output [63:0] datatoMem);
 
-    //wire swEnable, memWrtoReg;
-    wire swEnable, memWR;
+    wire memWR;
     wire [3:0] rowaddr;
 
     // registers module
