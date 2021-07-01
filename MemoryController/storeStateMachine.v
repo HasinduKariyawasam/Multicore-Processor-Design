@@ -18,6 +18,7 @@ module storeStateMachine (input clk, opendFlag, storeEnd,
                   else           nextState = IDLE;
             STORE: if (storeEnd) nextState = IDLE;
                    else          nextState = STORE;
+            default:             nextState = IDLE;
         endcase
     end
 
