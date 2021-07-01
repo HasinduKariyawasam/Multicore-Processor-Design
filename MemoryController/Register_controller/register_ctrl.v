@@ -11,7 +11,7 @@ module register_ctrl(
 
         input state_ctrl_store,
 		  
-		output reg [3:0] rowaddr,
+		  output reg [3:0] rowaddr,
 		  
 		  output reg [15:0] sw2_out,
 		  
@@ -23,7 +23,7 @@ module register_ctrl(
     reg unsigned [2:0] state;
 
 
-    always @ (posedge clk)
+    always @ (negedge clk)
 
         case (state)
 
