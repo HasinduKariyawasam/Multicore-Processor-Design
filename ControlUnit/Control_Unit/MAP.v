@@ -23,6 +23,7 @@ module MAP(IR,out);
 			8'd208: out = 5'b11000;	// INCI
 			8'd224: out = 5'b10101;	// STORE
 			8'd240: out = 5'b11001;	// RSTI
+			8'd241: out = 5'b11010; // OPEND
 			8'd255: out = 5'b00000; // FETCH
 			default: out = 5'b11111; // When there's no mapping
 		endcase

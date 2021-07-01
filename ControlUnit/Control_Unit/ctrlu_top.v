@@ -1,5 +1,5 @@
 module ctrlu_top(input clk, input Br, input Z, input [7:0] IR, input [4:0] naddr, 
-					  output [34:0] out);
+					  output [35:0] out);
 	/*
 		The module for the top part of the control unit
 	*/
