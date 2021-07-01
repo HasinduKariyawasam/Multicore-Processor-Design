@@ -45,14 +45,15 @@ module Registers(
     r register15(clk, MEMWR, WRITE_MEM, R15, BOUT15);
     r register16(clk, MEMWR, WRITE_MEM, R16, BOUT16);
 
-    always @(negedge clk)
+    always @(*)
         begin
-            case(ROW_ADDR)
-                4'b1000 : TO_DATA_MEM = {BOUT1,  BOUT2,  BOUT3	, BOUT4 };
-                4'b1001 : TO_DATA_MEM = {BOUT5,  BOUT6,  BOUT7	, BOUT8 };
-                4'b1010 : TO_DATA_MEM = {BOUT9,  BOUT10, BOUT11	, BOUT12 };
-                4'b1011 : TO_DATA_MEM = {BOUT13, BOUT14, BOUT15	, BOUT16 };
-            endcase
+            if(WRITE_MEM == 1)
+                case(ROW_ADDR)
+                    4'b1000 : TO_DATA_MEM = {BOUT1,  BOUT2,  BOUT3	, BOUT4 };
+                    4'b1001 : TO_DATA_MEM = {BOUT5,  BOUT6,  BOUT7	, BOUT8 };
+                    4'b1010 : TO_DATA_MEM = {BOUT9,  BOUT10, BOUT11	, BOUT12 };
+                    4'b1011 : TO_DATA_MEM = {BOUT13, BOUT14, BOUT15	, BOUT16 };
+                endcase
         end
        
     always @(*) 
