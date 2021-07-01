@@ -1,5 +1,5 @@
 module storeStateMachine (input clk, opendFlag, storeEnd,
-                            output memWrite, regOut, swEnable);
+                            output memWrite, swEnable);
 
     reg [1:0] state, nextState;
 
@@ -24,7 +24,6 @@ module storeStateMachine (input clk, opendFlag, storeEnd,
 
     // output logic
     assign memWrite = (state == STORE);
-    assign regOut = (state == STORE);
     assign swEnable = (state == STORE);
 
 endmodule //storeStateMachine

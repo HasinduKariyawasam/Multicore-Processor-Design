@@ -18,7 +18,7 @@ module register_ctrl_testbench();
 	
 	initial begin
 		state_ctrl_store=1'b0;
-		#250;
+		#200;
 		state_ctrl_store=1'b1; #100;state_ctrl_store = 1'b0; // WRITE to AR
 		#600;
 		state_ctrl_store=1'b1; #100;state_ctrl_store = 1'b0; // WRITE to AR
