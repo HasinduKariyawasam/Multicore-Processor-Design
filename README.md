@@ -20,9 +20,11 @@
     4. Add/ remove **"assign DOUT"** lines accordingly.
 2. Update **Registers.v**
     1. Add/ remove following inputs/ outputs/ wires to match the number of cores.
-        * STORE_ADD
-        * DATAIN
-        * MEMWR
+        - [x] STORE_ADD
+        - [x] DATAIN
+        - [x] MEMWR
+        - [x] en
+        - [x] case statement
     2. Edit the line **"assign MEMWR = "** accordingly.
     3. Add/ remove **case (STORE_ADD)** statements accordingly in the second **always** block.
 3. Update **opend_flag.v**
