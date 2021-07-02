@@ -27,7 +27,7 @@ def compiler(opcode):
     global mov_instr
     global count
     global jump_check
-    single_opcodes = ['RSTALL', 'SUB', 'MOV02', 'ADDX', 'ADDY', 'MUL', 'ADD', 'LOAD', 'MOV13', 'INCI', 'STORE', 'RSTI']
+    single_opcodes = ['RSTALL', 'SUB', 'MOV02', 'ADDX', 'ADDY', 'MUL', 'ADD', 'LOAD', 'MOV13', 'INCI', 'STORE', 'RSTI', 'OPEND']
     
     if (opcodes.get(opcode) != None):
         if (opcode in single_opcodes): # Handling instructions with no operands
