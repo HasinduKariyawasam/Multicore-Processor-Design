@@ -1,4 +1,5 @@
 module MemoryController (input clk,
+                      input  en1, en2, en3, en4,
                       input  op1, op2, op3, op4,
                       input [15:0] regAddr1, regAddr2, regAddr3, regAddr4,
                       input [15:0] data1, data2, data3, data4,
@@ -33,7 +34,7 @@ module MemoryController (input clk,
                             DOUT1, DOUT2, DOUT3, DOUT4);
 
     // store controller and registers
-    StoreCtrlwithRegisters storeCtrlandReg(clk, op1, op2, op3, op4,
+    StoreCtrlwithRegisters storeCtrlandReg(clk, en1, en2, en3, en4, op1, op2, op3, op4,
                                            regAddr1[3:0], regAddr2[3:0], regAddr3[3:0], regAddr4[3:0],
                                            data1, data2, data3, data4,
                                            WR1, WR2, WR3, WR4,
