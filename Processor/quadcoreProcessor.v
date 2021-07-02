@@ -15,17 +15,32 @@ module quadcoreProcessor (input clk);
     wire [15:0] INSADDR;
     wire IMREAD;
 
+    wire [3:0] en;
+    wire clk1, clk2, clk3, clk4;
+
+    // clock gating
+    always @(en) begin
+        if (en[0]) clk1 = clk;
+        else       clk1 = 0;
+        if (en[1]) clk2 = clk;
+        else       clk2 = 0;
+        if (en[2]) clk3 = clk;
+        else       clk3 = 0;
+        if (en[3]) clk4 = clk;
+        else       clk4 = 0;
+    end
+
     // four cores
-    core #(0,0) core1(clk, INSIN, DATAIN1, DMADDR1, IMADDR1, DATAOUT1,
+    core #(0,0) core1(clk1, INSIN, DATAIN1, DMADDR1, IMADDR1, DATAOUT1,
                       MEMREAD1, MEMWR1, INSREAD1, OPEND1);
 
-    core #(0,1) core2(clk, INSIN, DATAIN2, DMADDR2, IMADDR2, DATAOUT2,
+    core #(0,1) core2(clk2, INSIN, DATAIN2, DMADDR2, IMADDR2, DATAOUT2,
                       MEMREAD2, MEMWR2, INSREAD2, OPEND2);
 
-    core #(1,0) core3(clk, INSIN, DATAIN3, DMADDR3, IMADDR3, DATAOUT3,
+    core #(1,0) core3(clk3, INSIN, DATAIN3, DMADDR3, IMADDR3, DATAOUT3,
                       MEMREAD3, MEMWR3, INSREAD3, OPEND3);
 
-    core #(1,1) core4(clk, INSIN, DATAIN4, DMADDR4, IMADDR4, DATAOUT4,
+    core #(1,1) core4(clk4, INSIN, DATAIN4, DMADDR4, IMADDR4, DATAOUT4,
                       MEMREAD4, MEMWR4, INSREAD4, OPEND4);
 
     // memory controller
