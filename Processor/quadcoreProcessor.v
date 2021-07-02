@@ -12,6 +12,8 @@ module quadcoreProcessor (input clk);
     wire [63:0] datafromMem, datatoMem;
     wire memWR, memREAD;
     wire [15:0] memAddr;
+    wire [15:0] INSADDR;
+    wire IMREAD;
 
     // four cores
     core #(0,0) core1(clk, INSIN, DATAIN1, DMADDR1, IMADDR1, DATAOUT1,
@@ -39,7 +41,13 @@ module quadcoreProcessor (input clk);
     // data memory
     ram_data dataMemory(datafromMem, memAddr, datatoMem, memWR, memREAD, clk);
 
+    // instruction memory interface
+    INS_Ctrl IMInterface(IMADDR1, IMADDR2, IMADDR3, IMADDR4, 
+                         INSREAD1, INSREAD2, INSREAD3, INSREAD4,
+                         INSADDR, IMREAD);
+
     // instruction memory
-    
+    ram_instruction instructionMemory(INSIN, INSADDR, IMREAD, clk);
+
 
 endmodule //quadcoreProcessor
