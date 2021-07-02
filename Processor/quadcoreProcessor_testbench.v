@@ -2,6 +2,7 @@
 module quadcoreProcessor_testbench ();
 
     reg clk;
+    reg [4:0] numCores = 5'd1;
 
     // generate clock
     always begin
@@ -9,7 +10,7 @@ module quadcoreProcessor_testbench ();
     end
 
     // device under test
-    quadcoreProcessor dut(clk);
+    quadcoreProcessor dut(clk, numCores);
 
     // wait 200000ns
     initial begin
