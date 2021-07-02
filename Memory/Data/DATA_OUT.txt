@@ -1,5 +1,5 @@
 // memory data file (do not edit the following line - required for mem load use)
-// instance=/quadcoreProcessor_testbench/dut/dataMemory/mem
+// instance=/multicoreProcessor_testbench/dut/dataMemory/mem
 // format=hex addressradix=h dataradix=h version=1.0 wordsperline=1 noaddress
 000100050009000d
 0001000200030004
