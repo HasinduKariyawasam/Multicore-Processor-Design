@@ -1,5 +1,5 @@
 module StoreController (input clk,
-                        input op1, op2, op3, op4,
+                        input op1, op2, op3, op4, op5, op6, op7, op8, op9, op10, op11, op12, op13, op14, op15, op16,
                         output wire memWR, 
                         output swEnable, memWrtoReg,
                         output [3:0] rowaddr,
@@ -30,7 +30,7 @@ module StoreController (input clk,
                             memWrtoReg, storeEnd);
 
     // operation end flag
-    opend_flag opend_flag(opendFlag, op1, op2, op3, op4);
+    opend_flag opend_flag(opendFlag, op1, op2, op3, op4, op5, op6, op7, op8, op9, op10, op11, op12, op13, op14, op15, op16);
 
     // assign memWrite = memWR;
 
