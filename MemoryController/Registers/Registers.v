@@ -57,82 +57,83 @@ module Registers(
         end
        
     always @(*) 
-        begin
-            case (STORE_ADD_1)
-                4'd0  : R1 = DATAIN_1; 
-                4'd1  : R2 = DATAIN_1; 
-                4'd2  : R3 = DATAIN_1; 
-                4'd3  : R4 = DATAIN_1; 
-                4'd4  : R5 = DATAIN_1; 
-                4'd5  : R6 = DATAIN_1; 
-                4'd6  : R7 = DATAIN_1; 
-                4'd7  : R8 = DATAIN_1; 
-                4'd8  : R9 = DATAIN_1; 
-                4'd9  : R10 = DATAIN_1; 
-                4'd10 : R11 = DATAIN_1; 
-                4'd11 : R12 = DATAIN_1; 
-                4'd12 : R13 = DATAIN_1; 
-                4'd13 : R14 = DATAIN_1; 
-                4'd14 : R15 = DATAIN_1; 
-                4'd15 : R16 = DATAIN_1; 
-            endcase
+        if (MEMWR)
+            begin
+                case (STORE_ADD_1)
+                    4'd0  : R1 = DATAIN_1; 
+                    4'd1  : R2 = DATAIN_1; 
+                    4'd2  : R3 = DATAIN_1; 
+                    4'd3  : R4 = DATAIN_1; 
+                    4'd4  : R5 = DATAIN_1; 
+                    4'd5  : R6 = DATAIN_1; 
+                    4'd6  : R7 = DATAIN_1; 
+                    4'd7  : R8 = DATAIN_1; 
+                    4'd8  : R9 = DATAIN_1; 
+                    4'd9  : R10 = DATAIN_1; 
+                    4'd10 : R11 = DATAIN_1; 
+                    4'd11 : R12 = DATAIN_1; 
+                    4'd12 : R13 = DATAIN_1; 
+                    4'd13 : R14 = DATAIN_1; 
+                    4'd14 : R15 = DATAIN_1; 
+                    4'd15 : R16 = DATAIN_1; 
+                endcase
 
-            case (STORE_ADD_2)
-               4'd0  : R1 = DATAIN_2; 
-               4'd1  : R2 = DATAIN_2; 
-               4'd2  : R3 = DATAIN_2; 
-               4'd3  : R4 = DATAIN_2; 
-               4'd4  : R5 = DATAIN_2; 
-               4'd5  : R6 = DATAIN_2; 
-               4'd6  : R7 = DATAIN_2; 
-               4'd7  : R8 = DATAIN_2; 
-               4'd8  : R9 = DATAIN_2; 
-               4'd9  : R10 = DATAIN_2; 
-               4'd10 : R11 = DATAIN_2; 
-               4'd11 : R12 = DATAIN_2; 
-               4'd12 : R13 = DATAIN_2; 
-               4'd13 : R14 = DATAIN_2; 
-               4'd14 : R15 = DATAIN_2; 
-               4'd15 : R16 = DATAIN_2; 
-            endcase
+                case (STORE_ADD_2)
+                4'd0  : R1 = DATAIN_2; 
+                4'd1  : R2 = DATAIN_2; 
+                4'd2  : R3 = DATAIN_2; 
+                4'd3  : R4 = DATAIN_2; 
+                4'd4  : R5 = DATAIN_2; 
+                4'd5  : R6 = DATAIN_2; 
+                4'd6  : R7 = DATAIN_2; 
+                4'd7  : R8 = DATAIN_2; 
+                4'd8  : R9 = DATAIN_2; 
+                4'd9  : R10 = DATAIN_2; 
+                4'd10 : R11 = DATAIN_2; 
+                4'd11 : R12 = DATAIN_2; 
+                4'd12 : R13 = DATAIN_2; 
+                4'd13 : R14 = DATAIN_2; 
+                4'd14 : R15 = DATAIN_2; 
+                4'd15 : R16 = DATAIN_2; 
+                endcase
 
-            case (STORE_ADD_3)
-               4'd0  : R1 = DATAIN_3; 
-               4'd1  : R2 = DATAIN_3; 
-               4'd2  : R3 = DATAIN_3; 
-               4'd3  : R4 = DATAIN_3; 
-               4'd4  : R5 = DATAIN_3; 
-               4'd5  : R6 = DATAIN_3; 
-               4'd6  : R7 = DATAIN_3; 
-               4'd7  : R8 = DATAIN_3; 
-               4'd8  : R9 = DATAIN_3; 
-               4'd9  : R10 = DATAIN_3; 
-               4'd10 : R11 = DATAIN_3; 
-               4'd11 : R12 = DATAIN_3; 
-               4'd12 : R13 = DATAIN_3; 
-               4'd13 : R14 = DATAIN_3; 
-               4'd14 : R15 = DATAIN_3; 
-               4'd15 : R16 = DATAIN_3; 
-            endcase
+                case (STORE_ADD_3)
+                4'd0  : R1 = DATAIN_3; 
+                4'd1  : R2 = DATAIN_3; 
+                4'd2  : R3 = DATAIN_3; 
+                4'd3  : R4 = DATAIN_3; 
+                4'd4  : R5 = DATAIN_3; 
+                4'd5  : R6 = DATAIN_3; 
+                4'd6  : R7 = DATAIN_3; 
+                4'd7  : R8 = DATAIN_3; 
+                4'd8  : R9 = DATAIN_3; 
+                4'd9  : R10 = DATAIN_3; 
+                4'd10 : R11 = DATAIN_3; 
+                4'd11 : R12 = DATAIN_3; 
+                4'd12 : R13 = DATAIN_3; 
+                4'd13 : R14 = DATAIN_3; 
+                4'd14 : R15 = DATAIN_3; 
+                4'd15 : R16 = DATAIN_3; 
+                endcase
 
-            case (STORE_ADD_4)
-               4'd0  : R1 = DATAIN_4; 
-               4'd1  : R2 = DATAIN_4; 
-               4'd2  : R3 = DATAIN_4; 
-               4'd3  : R4 = DATAIN_4; 
-               4'd4  : R5 = DATAIN_4; 
-               4'd5  : R6 = DATAIN_4; 
-               4'd6  : R7 = DATAIN_4; 
-               4'd7  : R8 = DATAIN_4; 
-               4'd8  : R9 = DATAIN_4; 
-               4'd9  : R10 = DATAIN_4; 
-               4'd10 : R11 = DATAIN_4; 
-               4'd11 : R12 = DATAIN_4; 
-               4'd12 : R13 = DATAIN_4; 
-               4'd13 : R14 = DATAIN_4; 
-               4'd14 : R15 = DATAIN_4; 
-               4'd15 : R16 = DATAIN_4; 
-           endcase
+                case (STORE_ADD_4)
+                4'd0  : R1 = DATAIN_4; 
+                4'd1  : R2 = DATAIN_4; 
+                4'd2  : R3 = DATAIN_4; 
+                4'd3  : R4 = DATAIN_4; 
+                4'd4  : R5 = DATAIN_4; 
+                4'd5  : R6 = DATAIN_4; 
+                4'd6  : R7 = DATAIN_4; 
+                4'd7  : R8 = DATAIN_4; 
+                4'd8  : R9 = DATAIN_4; 
+                4'd9  : R10 = DATAIN_4; 
+                4'd10 : R11 = DATAIN_4; 
+                4'd11 : R12 = DATAIN_4; 
+                4'd12 : R13 = DATAIN_4; 
+                4'd13 : R14 = DATAIN_4; 
+                4'd14 : R15 = DATAIN_4; 
+                4'd15 : R16 = DATAIN_4; 
+            endcase
         end
     
 //    always @(*) 
