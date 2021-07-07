@@ -57,43 +57,47 @@ def compiler(opcode):
         else:
             return nonsingle_opcode + int(opcode)
             
-if __name__ == "__main__":            
-
-    with open('program.txt','r') as pr:
-            lines = pr.readlines()
-            for line in lines:
-                if (';' not in line):
-                    print("Syntax Error: Missing ending semicolon")
-                    exit()
-            w = [l.split(" ") for l in lines]
-            words = flatten(w)
-            l = len(words)
-            print('Number of Opcodes and Operands in the program: ',l)
-            print(words)
-            print('===============================================')
-            for i in range(l):
-                if(';' in words[i]):
-                    if (',' in words[i]): # Handling syntax error when there's no space after a comma in a pair of operands
-                        print("Syntax error: Expected space after comma.")
+if __name__ == "__main__":
+    
+    try:
+        with open('program.txt','r') as pr:
+                lines = pr.readlines()
+                for line in lines:
+                    if (';' not in line):
+                        print("Syntax Error: Missing ending semicolon")
                         exit()
-                    idx = words[i].find(';')
-                    words[i] = words[i][:idx]
-                elif(',' in words[i]):
-                    idx = words[i].find(',')
-                    if (idx == (len(words[i])-1)):
-                        words[i] = words[i][:idx]
-                    else: # Handling syntax error when there's no space after a comma in a pair of operands
-                        print("Syntax error: Expected space after comma.")
-                        exit()
-                
-                if (words[i] not in opcodes): # Handling syntax errors - valid opcodes/operands
-                    if (words[i] not in regs.keys()):
-                        try:
-                            operand = int(words[i])
-                        except:
-                            print("Syntax error: "+words[i]+" is not a valid opcode/operand.")
+                w = [l.split(" ") for l in lines]
+                words = flatten(w)
+                l = len(words)
+                print('Number of Opcodes and Operands in the program: ',l)
+                print(words)
+                print('===============================================')
+                for i in range(l):
+                    if(';' in words[i]):
+                        if (',' in words[i]): # Handling syntax error when there's no space after a comma in a pair of operands
+                            print("Syntax error: Expected space after comma.")
                             exit()
-            print(words)
+                        idx = words[i].find(';')
+                        words[i] = words[i][:idx]
+                    elif(',' in words[i]):
+                        idx = words[i].find(',')
+                        if (idx == (len(words[i])-1)):
+                            words[i] = words[i][:idx]
+                        else: # Handling syntax error when there's no space after a comma in a pair of operands
+                            print("Syntax error: Expected space after comma.")
+                            exit()
+
+                    if (words[i] not in opcodes): # Handling syntax errors - valid opcodes/operands
+                        if (words[i] not in regs.keys()):
+                            try:
+                                operand = int(words[i])
+                            except:
+                                print("Syntax error: "+words[i]+" is not a valid opcode/operand.")
+                                exit()
+                print(words)
+    except:
+        print("File not found error: No such file: 'program.txt' in current directory")
+        exit()
 
     instructions = []
     for word in words:
