@@ -111,7 +111,7 @@ if __name__ == "__main__":
     print("Equivalent binary conversion")
     print(instructions)
 
-    with open('INS_MEM.txt', 'w') as f:
+    with open('binary.txt', 'w') as f:
         for instr in instructions:
             f.write("{0:016b}".format(instr))
             f.write('\n')
