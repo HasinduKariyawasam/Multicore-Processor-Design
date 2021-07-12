@@ -28,12 +28,15 @@ module uart_ctrl(input clk,
     reg unsigned [1:0] state = IDLE;
     reg [3:0] chunk = 4'd0;
     reg [63:0] datarow;
+    reg [1:0] edgecapture = 2'b00;
+    wire txedge;
 
     always @ (posedge clk)
 
         case (state)
 
             IDLE: begin
+                    txEn <= 0;
                     if (button == 0)
                         begin
                             state <= READ;
@@ -122,7 +125,7 @@ module uart_ctrl(input clk,
                 end
 
             TX: begin
-                    if (txDone)
+                    if (txedge)
                         begin
                             chunk <= chunk + 4'd1;
                             state <= UART; 
@@ -133,5 +136,12 @@ module uart_ctrl(input clk,
 				end
 
         endcase
+
+    always @(posedge clk ) 
+        begin
+            edgecapture <= {edgecapture[0], txDone};
+        end
+
+    assign txedge = edgecapture[1] & !edgecapture[0];
 
 endmodule
