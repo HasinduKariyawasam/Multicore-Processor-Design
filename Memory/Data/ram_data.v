@@ -35,7 +35,7 @@ module ram_data(DATAOUT,ADDBUS,DATAIN,WR, RD, clk);
 			if (WR) begin
 				mem[ADDBUS] <= DATAIN;
 			end
-			$writememh("D:/FPGA/Multicore Processor Design/Memory/Data/DATA_OUT.txt",mem,0);    	
+			$writememh("Z:/Desktop/FPGA Project/Multicore-Processor-Design/Memory/Data/DATA_OUT.txt",mem,0);    	
    end
 	
 	

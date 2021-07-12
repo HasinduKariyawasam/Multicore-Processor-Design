@@ -1,4 +1,4 @@
-module multicoreProcessor (input clk, input [4:0] numCores);
+module multicoreProcessor (input clk, input [4:0] numCores); // , output dmWR
 
     wire [15:0] INSIN;
     wire [15:0] DATAIN1, DATAIN2, DATAIN3, DATAIN4, DATAIN5, DATAIN6, DATAIN7, DATAIN8,
@@ -36,6 +36,9 @@ module multicoreProcessor (input clk, input [4:0] numCores);
     wire [15:0] en;
     wire clk1, clk2, clk3, clk4, clk5, clk6, clk7, clk8, clk9, clk10, clk11, clk12, clk13, clk14, 
          clk15, clk16;
+     
+     // wr signal for data memory
+     // assign dmWR = memWR;
 
     // clock gating
     assign clk1 = en[0] ? clk: 0;
