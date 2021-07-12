@@ -37,6 +37,7 @@ module multicoreProcessor (input clk, input [4:0] numCores);
     wire clk1, clk2, clk3, clk4, clk5, clk6, clk7, clk8, clk9, clk10, clk11, clk12, clk13, clk14, 
          clk15, clk16;
 
+
     // clock gating
     assign clk1 = en[0] ? clk: 0;
     assign clk2 = en[1] ? clk: 0;
