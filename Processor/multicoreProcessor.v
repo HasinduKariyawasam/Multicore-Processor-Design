@@ -40,6 +40,7 @@ module multicoreProcessor (input clk, input [4:0] numCores); // , output dmWR
      // wr signal for data memory
      // assign dmWR = memWR;
 
+
     // clock gating
     assign clk1 = en[0] ? clk: 0;
     assign clk2 = en[1] ? clk: 0;
